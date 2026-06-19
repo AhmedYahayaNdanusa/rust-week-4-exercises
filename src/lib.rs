@@ -24,7 +24,7 @@ pub struct Point<T> {
 impl<T> Point<T> {
     pub fn new(x: T, y: T) -> Self {
         // TODO: Implement constructor for Point
-        Self {x, y }
+        Self { x, y }
     }
 }
 
@@ -180,13 +180,11 @@ impl TryFrom<&[u8]> for LegacyTransaction {
             return Err(BitcoinError::InvalidTransaction);
         }
 
-        let version = i32::from_le_bytes(
-            data[0..4].try_into().unwrap());
+        let version = i32::from_le_bytes(data[0..4].try_into().unwrap());
 
-        let lock_time = u32::from_le_bytes(
-            data[data.len() - 4..].try_into().unwrap());
+        let lock_time = u32::from_le_bytes(data[data.len() - 4..].try_into().unwrap());
 
-        Ok(LegacyTransaction{
+        Ok(LegacyTransaction {
             version,
             inputs: Vec::new(),
             outputs: Vec::new(),
