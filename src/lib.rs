@@ -12,6 +12,8 @@ pub enum BitcoinError {
     InvalidAmount,
     #[error("Parse error: {0}")]
     ParseError(String),
+    #[allow(unused_imports)]
+    use std::str::FromStr;
 }
 
 // Generic Point struct for Bitcoin addresses or coordinates
